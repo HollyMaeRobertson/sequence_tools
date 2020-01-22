@@ -1,6 +1,6 @@
 import sys
 import stats
-import checks
+import tools
 
 #script takes one argument(file)
 if len(sys.argv) != 3:
@@ -33,10 +33,10 @@ with open(sequence_file) as f:
             #all the other non-sequence lines
             else:
                 #for the string currently stored in seq, look for dashes
-                dashes = checks.look_for_front_dashes(seq)
+                dashes = tools.look_for_front_dashes(seq)
                 dashes_lengths.append(dashes)
                 
-                terminal_dashes = checks.look_for_terminal_dashes(seq)
+                terminal_dashes = tools.look_for_terminal_dashes(seq)
                 terminal_dashes_lengths.append(terminal_dashes)
                 
                 #compare current length to last length
@@ -88,8 +88,8 @@ for name in sequences:
     print(new_seq)
  
 #find sites of interest (similar between sites of interest and different for others)
-potential_associations1 = checks.similar(sequences, of_interest)
-potential_associations2 = checks.not_in_interest(sequences, of_interest)
+potential_associations1 = tools.similar(sequences, of_interest)
+potential_associations2 = tools.not_in_interest(sequences, of_interest)
 
 potential_associations1 = set(potential_associations1)
 associations = potential_associations1.intersection(potential_associations2)
