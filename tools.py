@@ -1,5 +1,7 @@
 
 def codon_reader(sequence):
+    '''takes a nucleotide sequence and converts to 
+    a list of codons'''
     codons = []
     
     if len(sequence) % 3 == 0:
@@ -57,6 +59,8 @@ def not_in_interest(sequences, interest):
     return(associations)
     
 def look_for_front_dashes(sequence):
+    '''counts all the consecutive dashes 
+    at the start of sequences'''
     counter = 0
     for i in range(len(sequence)):
         if sequence[i] == '-':
@@ -65,6 +69,8 @@ def look_for_front_dashes(sequence):
             return(counter)
 
 def look_for_terminal_dashes(sequence):
+    '''uses look_for_front_dashes to count all
+    the consecutive dashesat the end of a sequence'''
     reversed_sequence = sequence[::-1]
     counter = look_for_front_dashes(reversed_sequence)
     return(counter)
