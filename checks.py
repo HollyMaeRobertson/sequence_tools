@@ -45,11 +45,15 @@ def not_in_interest(sequences, interest):
     
     return(associations)
     
-def look_for_dashes(sequence):
+def look_for_front_dashes(sequence):
     counter = 0
     for i in range(len(sequence)):
         if sequence[i] == '-':
             counter +=  1
         else:
             return(counter)
-        
+
+def look_for_terminal_dashes(sequence):
+    reversed_sequence = sequence[::-1]
+    counter = look_for_front_dashes(reversed_sequence)
+    return(counter)
