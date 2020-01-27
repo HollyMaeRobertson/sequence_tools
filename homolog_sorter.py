@@ -2,7 +2,7 @@ import sys
 import os
 import blast_tools as blst
 
-#usage instructions
+#usage instructions 
 if len(sys.argv) != 3:
     print("This script compares sets of homologs and puts them with their " +
           "closest likely relatives." + "\nUsage: homolog_sorter.py " +
