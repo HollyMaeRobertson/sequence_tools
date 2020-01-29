@@ -1,6 +1,12 @@
 import sys
 import re
 
+if len(sys.argv) != 3:
+    print("This takes a tab-separated blast output file and " +
+        "returns the genome locations where the genes are found" +
+        "\nUsage: blast_output_reader.py <blast_file> <genome_file>")
+    sys.exit()
+
 #initialise things
 blast_file = sys.argv[1]
 genome_file = sys.argv[2]
@@ -87,10 +93,4 @@ with open(genome_file) as f:
                 
         #add to sequence
         else:
-            seq += line
-            
-            
-            
-            
-            
-            
+            seq += line     
